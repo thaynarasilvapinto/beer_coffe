@@ -14,6 +14,7 @@ var (
 	postgresConnect           *sql.DB               = nil
 	newrelicAplicationConnect *newrelic.Application = nil
 	beers                     []db.Beer
+	cofeers                   []db.Coffee
 )
 
 func main() {
@@ -24,4 +25,8 @@ func main() {
 	beers = db.SelectAllBeer(postgresConnect, newrelicAplicationConnect)
 
 	fmt.Println(beers)
+
+	cofeers = db.SelectAllCoffee(postgresConnect, newrelicAplicationConnect)
+
+	fmt.Println(cofeers)
 }
